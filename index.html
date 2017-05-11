@@ -1,0 +1,293 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" /> 
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>	
+	<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+	
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/additional-methods.min.js"></script>
+	
+	
+	<script type="text/javascript" src="js/jse.js"></script>
+	
+	
+	<script type="text/javascript" src="js/validation.js"></script>
+	
+</head>
+<body >
+	
+	
+	<header>
+		<div id="gameTitle"> PACMAN GAME by amit livne and eliran nachmani
+			
+			
+		</div>
+		<img id="pacLogo" src="img/pac2.jpg" alt="">
+
+	</header>
+
+	<nav>
+		<div class=menuButton" onclick="navToWelcome()" >
+			<div class="MenuB" id="menueBwelcome" ><div class="menuText"  ">Welcome</div></div>
+		</div>
+		<div class=menuButton" onclick="navToRegister()">
+			<div class="MenuB" id="menueBabout" ><div class="menuText" ;">Register</div></div>
+		</div>
+		<div class=menuButton" onclick="navToLogin()">
+			<div class="MenuB" id="menueBregister" ><div class="menuText"  ">Login</div></div>			
+		</div>		
+		<div class=menuButton" onclick="navToAbout()">
+			<div class="MenuB" id="menueBlogin" ><div class="menuText" ">About</div></div>
+		</div>
+	</nav>
+
+	<section >		
+		<div id="welcome" class="divClass">
+			<img id = "pacmanwelcome" src="img/pac1.png">
+			<div id="welcomePart1"  class="divText">This game was  </br> built by: </div> 
+			
+			<div class="divText" id="divTextSec">Amit </br><span ">Livne</span></br> 300964152 </div> 
+			<div class="divText" id="divTextLast">  </br></br></br> Eliran </br><span >Nachmani</span> </br> 301725875 </div>
+			
+			<div id="loginButton" onclick="navToLogin()" class="divButtons">
+				<div class="divTextB" >Login</div>
+			</div>
+
+			<div id="registerButton" onclick ="navToRegister()" class="divButtons" >
+				<div class="divTextB" >Register</div>
+			</div>
+
+		</div>
+
+		<div id="login" class="divClass">
+			<div id="loginPart1"></div>
+			
+			<div id="loginhead" class="divText"> Login </div>
+
+			<div id="userNameLogin" class="divText" ">User name:</div>
+			<input type="text" id="userNameEnteredLogin">
+			<div id="passwordLogin" class="divText">Password:</div>
+			<input type="password" id="passwordEntered" >
+			<div id="playButton" class="divButtons" onclick="login()">
+				<div class="divTextB" >Play</div>
+			</div>	
+
+		</div>
+
+		<div id="subscription" class="divClass">
+			<div id="registerPart1"><div class="divText"> Registration </div></div>
+			<form id="regForm" method="post" action="mailto:livne.amit@gmail.com" target="_newtab">
+				<!--user Name -->
+				<div id = "UserHead" class="divTextReg">User:
+					<input id= "UserInput"  type="text" name="userName1" placeholder="enter new user" required="required">
+				</div>
+				
+				<div id = "passwordHead" class="divTextReg" >Password:
+					<input id= "passwordInput"  type="password" name="password1" placeholder="enter password" required="required">
+				</div>
+				
+				<div id="repeatedPassHead" class="divTextReg">Rep Password:
+					<input id="repeatedPassInput"  type="password" name="password2" placeholder="repeat your password" required="required">
+				</div>
+				
+				<div id="firstNameHead" class="divTextReg" >FirstName:
+					<input id="firstNameInput"  type="text" name="firstName" placeholder="first" required="required">
+				</div>
+
+				<div id="LastNameHead" class="divTextReg" >LastName:
+					<input id="LastNameInput"  type="text" name="lastName" placeholder="last" required="required">
+				</div>
+
+				<div id="EmailHead" class="divTextReg" >E-mail:
+					<input id= "EmailInput"  type="email" name="email" placeholder="email"  required="required">
+				</div>
+				<div id= "BODHead" class="divTextReg" >Birthday:
+					<input id= "BODInput"  type="date" name="birthday" placeholder="enter BOD" required="required" max="{{minAge | date:'yyyy-MM-dd'}}" />                  
+				</div>
+				<!-- Submit Button -->
+				<div id="contact_submit" >               
+					<button type="submit" onclick="submitForm()">Sign Up </button>
+				</div>
+			</form>
+				<!--
+
+				<div id = "UserHead" class="divText">User:</div>
+				<input id= "UserInput" type="text" name="userName">
+
+				<div id = "passwordHead" class="divText" >Password:</div>
+				<input id= "passwordInput" type="password" name="password1">
+
+				<div id="repeatedPassHead" class="divText">Repeated Password:<br></div>
+				<input id="repeatedPassInput" type="password" name="password2">
+
+				<div id="firstNameHead" class="divText" >FirstName:</div>
+				<input id="firstNameInput" type="text" name="firstName">
+				<div id="LastNameHead" class="divText" >LastName:</div>
+				<input id="LastNameInput" type="text" name="lastName" >
+				<div id="EmailHead" class="divText" >E-mail:<br></div>
+				<input id= "EmailInput" type="email" name="email"  >
+				<div id= "BODHead" class="divText" >Birthday:<br></div>
+				<input id= "BODInput" type="date" name="birthday" max="{{minAge | date:'yyyy-MM-dd'}}" />
+				<input id="submitRegistration" type="submit" name="submit" value="Send via email" />
+					<div id="submintButton" onclick ="submitForm()"  class="divButtons">
+
+					<div id="registerPart5">	
+
+
+					
+
+						<div class="divTextB">Submit</div>
+					</div>	
+					!-->
+
+
+				<!--<div id="registerPart3" style="z-index:1;"></div>			
+
+				<div id="registerPart4"></div> !-->
+				
+			</div>
+			<dialog id="about">
+				<div id="aboutPart1" class="divText">
+					<div id="aboutPart2" >
+
+					</br>Names: Amit Livne , Eliran Nachmani.
+				</br> At this assignment we didn't use any ready template.
+			</br> JQuery Plugins: validation as shown in class,
+		</br>$(document).ready
+		$(".class") / $("#id")
+		.show() / .hide().
+	</br> 
+</br></br></br></br>Hope you had some fun! feel comfortable to email us with any Question that you would like via email/facebook/linkdin.
+
+
+<div id="submintButton" onclick ="closeAbout()"  class="divButtons" >
+	<div class="divTextB" >Close</div>
+</div>
+
+</div>
+</div>
+</dialog>
+<div id="config" class="divClass" >
+	
+	<div id="configPart1"></div>
+
+	<div id = "ConfigHead" class="divText" > Config </div>
+
+	<div id="divinputgame2" class = "divText">
+		First Balls Color:
+		<input id="clrlarge" type="color"/>
+		<br/>
+		<br/>
+		<br/>
+		Second Balls Color:
+		<input id="clrmed" type="color"/>
+		<br/>
+		<br/>
+		<br/>
+		Third Balls Color:
+		<input id="clrsmall" type="color"/>
+		<br/>
+		<br/>
+		<br/>
+	</div>
+	<div id= "MonsterNumHead" class="divText" ># of monsters:</div>
+
+	
+	<div id="MonsterComboBox" class="divText" >
+	<!--
+		<select>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+		!-->
+		<select id="ddlViewBy">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+	</div>
+	<div id= "GameTimeHead" class="divText" >Game Time:(60-180 sec)</div>
+	<input type="range" id="timeRange" onchange="updateTextInput(this.value);" value="50" />
+	<div  class="divText" id="timeText"  >	</div>
+
+	<div id="BallsHead" class="divText" ># of game balls(50-90):</div>	
+	<input  type="range" id="ballRange" onchange="updateBallInput(this.value);" min="50" max="90" step="1" value="50" >
+	<div  class="divText" id="ballText" >	</div>
+	
+
+
+	<div id="playButton" class="divButtons" onclick="StartNewGame()">
+		<audio id="myaudio">
+			<source src="sounds/song.mp3" type="audio/mpeg" />
+		</audio>
+
+		<div class="divTextB"> Start </div>
+		
+
+		
+	</div>
+
+</div>
+<!-- <dialog id="dialogGame" style="position:absolute; top:0; height:600px; " > !-->
+<div id="game" class="divClass" height="750" width="850" >
+
+	
+
+	
+
+	UserName:
+	<input id="lblUser" type="text" />
+	Score:
+	<input id="lblScore" type="text" /> 
+	Time:
+	<input id="lblTime" type="text"  />
+	Life Remian:
+	<input id="paclife" type="text" />
+	LimitTime:
+	<input id="limitTime" type="text" />	
+	
+	<input id = "startButton" type = "button" value = "Restart" onclick="restartGame()">
+	<input id = "exitButton" type = "button" value = "Exit" onclick="exitGame()">
+		<p>
+	massages:
+
+	<output id="massageBox"></output>
+
+	<br>
+	<canvas id="canvas" height="800" width="800"></canvas>
+
+}
+<script type="text/javascript" src="js/packman.js"></script>
+
+	<!-- 
+	<input id="clickMe" type="button" value="Start a New Game" onclick="Start();"  /> 
+	!-->
+	
+</div>
+<!-- </dialog> !-->
+
+
+
+</section>
+
+<footer>
+	<div id = "foot"> 
+		<span> for any question or feedback you can contact us by </span>
+		Amit:
+		<!-- Facebook Badge START --><a href="https://www.facebook.com/livneam" title="Amit Livne" target="_TOP"> <img class="img" src="https://badge.facebook.com/badge" height="45"  alt="" /></a><!-- Facebook Badge END -->
+		<a href = "https://www.linkedin.com/in/amitlivne/"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_liprofile_blue_80x15.png" width="80" height="15" border="0" /></a>
+		Eliran:
+		<!-- Facebook Badge START --><a href="https://www.facebook.com/eliran.nachmani" title="Eliran Nachmani" target="_TOP"><img class="img" src="https://badge.facebook.com/badge" height="45" " alt="" /></a><!-- Facebook Badge END -->
+		<a href="https://www.linkedin.com/in/eliran-nachmani-354a3710a/"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_liprofile_blue_80x15.png" width="80" height="15" border="0" /></a>
+	</div>
+</footer>
+
+</body>
+
+
+</html>
